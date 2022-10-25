@@ -31,4 +31,11 @@
 *.out
 *.app
 
+*.replace
+
 Zombie
+Brain
+Sed
+Fight
+Harl
+HarlFilter
