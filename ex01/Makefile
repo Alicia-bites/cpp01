@@ -1,8 +1,8 @@
 # project settings
 NAME 			:=	ZombieHorde
 NAME_AR			:=	ZombieHorde.a
-C++				:=	clang++
-CXXFLAGS		:=	-MMD -Wall -Wextra -Werror -std=c++98
+C++				:=	c++
+CXXFLAGS		:=	-Wall -Wextra -Werror -std=c++98
 CXXFLAGSADD		:=	-g3
 
 VALGRIND		:=	valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes
