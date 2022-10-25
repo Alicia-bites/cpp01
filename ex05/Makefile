@@ -43,7 +43,7 @@ clean:
 
 fclean:
 			make clean
-			$(RM) $(NAME) testFiles/*.replace
+			$(RM) $(NAME)
   
 re:
 			make fclean

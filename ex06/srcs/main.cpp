@@ -1,15 +1,26 @@
 #include "Harl.hpp"
 
-void	exitIfError(std::string arg)
+void	handleError(int errcode)
 {
-	for (size_t i = 0; i < arg.size(); i++)
-		if (!isalpha(arg.at(i)))
-		{
-			std::cerr << "[ Probably complaining about insignificant problems ]"
+	if (errcode == LEVEL_UNKNOWN)
+		std::cout << "[ Probably complaining about insignificant problems ]"
 			<< std::endl
 			<< std::endl;
-			exit(0);
-		}
+	if (errcode == INVALID_ARGUMENT)
+		std::cerr << "String can only be characters"
+			<< std::endl
+			<< std::endl;
+	if (errcode == EMPTY_STRING)
+		std::cerr << "Empty string!"
+			<< std::endl
+			<< std::endl;
+	exit(errcode);
+}
+
+void	parse(std::string arg)
+{
+	if (arg.empty())
+		handleError(EMPTY_STRING);
 }
 
 int main(int argc, char **argv)
@@ -20,10 +31,7 @@ int main(int argc, char **argv)
 			<< std::endl;
 		return (0);
 	}
-	// exitIfError(argv[1]);
-	// filter(argv[1]);
-	std::string arg(argv[1]);
-	std::cout << arg << std::endl;
+	parse(argv[1]);
 	Harl harl(argv[1]);
 
 	harl.filter();

@@ -3,8 +3,17 @@
 
 #include <iostream>
 #include <string>
-#include "colors.hpp"
 #include <climits>
+
+# define YELLOW6 "\033[38;5;106m"
+# define YELLOW3 "\033[38;5;148m"
+# define YELLOW2 "\033[38;5;190m"
+# define YELLOW1 "\033[38;5;226m"
+# define INDIANRED2 "\033[38;5;167m"
+# define INDIANRED3 "\033[38;5;203m"
+# define INDIANRED4 "\033[38;5;204m"
+# define TURQUOISE4 "\033[38;5;30m"
+# define RESET "\033[0m"
 
 class Zombie
 {

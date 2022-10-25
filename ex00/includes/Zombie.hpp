@@ -3,7 +3,11 @@
 
 #include <iostream>
 #include <string>
-#include "colors.hpp"
+
+# define THISTLE1 "\033[38;5;225m"
+# define STEELBLUE4 "\033[38;5;68m"
+# define PALEVIOLETRED1 "\033[38;5;211m"
+# define RESET "\033[0m"
 
 class Zombie
 {
