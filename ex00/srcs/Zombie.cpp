@@ -4,8 +4,6 @@
 Zombie::Zombie(std::string name)
 : name(name)
 {
-	std::cout << THISTLE1 << "A new Zombie is born. His name is "
-		<< name << "." << RESET << std::endl;
 	Zombie::announce();
 }
 
