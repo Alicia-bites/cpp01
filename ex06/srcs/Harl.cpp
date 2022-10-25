@@ -51,7 +51,7 @@ void	Harl::filter()
 				complain("error");
 				break;
 			default:
-				std::cout << "No level of complaint for this one." << std::endl;
+				std::cout << "[ Probably complaining about insignificant problems ] " << std::endl;
 		}
 	}
 }
@@ -74,8 +74,10 @@ void	Harl::debug()
 {
 	std::cout
 		<< SPRINGGREEN1
+		<< "[ DEBUG ]"
 		<< "I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!"
 		<< RESET
+		<< std::endl
 		<< std::endl;
 }
 
@@ -83,8 +85,10 @@ void	Harl::info()
 {
 	std::cout
 		<< SPRINGGREEN5
+		<< "[ INFO ]"
 		<< "I cannot believe adding extra bacon costs more money. You didn’t put enough bacon in my burger! If you did, I wouldn’t be asking for more!"
 		<< RESET
+		<< std::endl
 		<< std::endl;
 }
 
@@ -92,8 +96,10 @@ void	Harl::warning()
 {
 	std::cout
 		<< SPRINGGREEN3
+		<< "[ WARNING ]"
 		<< "I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month."
 		<< RESET
+		<< std::endl
 		<< std::endl;
 }
 
@@ -101,13 +107,15 @@ void	Harl::error()
 {
 	std::cout
 		<< SPRINGGREEN6
+		<< "[ ERROR ]"
 		<< "This is unacceptable! I want to speak to the manager now."
 		<< RESET
+		<< std::endl
 		<< std::endl;
 }
 
 void	Harl::handleError(int errcode)
 {
 	if (errcode == LEVEL_UNKNOWN)
-		std::cout << "Unknown level. Couldn't set filter." << std::endl;
+		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 }
