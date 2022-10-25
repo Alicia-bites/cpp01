@@ -1,15 +1,7 @@
 #include "Harl.hpp"
 
-void	handleError(int errcode)
+void	panicAndExit(int errcode)
 {
-	if (errcode == LEVEL_UNKNOWN)
-		std::cout << "[ Probably complaining about insignificant problems ]"
-			<< std::endl
-			<< std::endl;
-	if (errcode == INVALID_ARGUMENT)
-		std::cerr << "String can only be characters"
-			<< std::endl
-			<< std::endl;
 	if (errcode == EMPTY_STRING)
 		std::cerr << "Empty string!"
 			<< std::endl
@@ -20,7 +12,7 @@ void	handleError(int errcode)
 void	parse(std::string arg)
 {
 	if (arg.empty())
-		handleError(EMPTY_STRING);
+		panicAndExit(EMPTY_STRING);
 }
 
 int main(int argc, char **argv)

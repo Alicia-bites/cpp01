@@ -2,74 +2,78 @@
 
 // Default constructor
 Harl::Harl()
-{}
+{
+}
 
 // Constructor
 Harl::Harl(std::string filter)
-: filter_ (filter)
-, filterLevel_ (-1)
-{}
+	: filter_(filter), filterLevel_(4)
+{
+}
 
 // Destructor
 Harl::~Harl()
-{}
+{
+}
 
 std::string Harl::levels_[] =
-{
-	"DEBUG",
-	"INFO",
-	"WARNING",
-	"ERROR"
-};
+	{
+		"DEBUG",
+		"INFO",
+		"WARNING",
+		"ERROR"};
 
-void	Harl::defineFilterLevel()
+void Harl::defineFilterLevel()
 {
 	for (int i = 0; i < 4; i++)
 		if (filter_ == levels_[i])
 			filterLevel_ = i;
-	if (filterLevel_ < 0 || filterLevel_ > 3)
-		handleError(LEVEL_UNKNOWN);
+	if (filterLevel_ > 3)
+		filterLevel_ = 4;
 }
 
-void	Harl::filter()
+void Harl::filter()
 {
 	defineFilterLevel();
 
-	for (int i = filterLevel_; i <= 3; i++)
+	for (int i = filterLevel_; i < 4 || i == filterLevel_; i++)
 	{
 		switch (i)
 		{
-			case 0:
-				complain("DEBUG");
-				break;
-			case 1:
-				complain("INFO");
-				break;
-			case 2:
-				complain("WARNING");
-				break;
-			case 3:
-				complain("ERROR");
-				break;
+		case 0:
+			complain("DEBUG");
+			break;
+		case 1:
+			complain("INFO");
+			break;
+		case 2:
+			complain("WARNING");
+			break;
+		case 3:
+			complain("ERROR");
+			break;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]"
+				<< std::endl
+				<< std::endl;
 		}
 	}
 }
 
-void	Harl::complain(std::string level)
+void Harl::complain(std::string level)
 {
 	HarlMemFn chooseFunc[] =
-	{
-		&Harl::debug,
-		&Harl::info,
-		&Harl::warning,
-		&Harl::error
-	};
+		{
+			&Harl::debug,
+			&Harl::info,
+			&Harl::warning,
+			&Harl::error};
 	for (int i = 0; i < 4; i++)
 		if (level == levels_[i])
 			(this->*chooseFunc[i])();
 }
 
-void	Harl::debug()
+void Harl::debug()
 {
 	std::cout
 		<< SPRINGGREEN1
@@ -81,7 +85,7 @@ void	Harl::debug()
 		<< std::endl;
 }
 
-void	Harl::info()
+void Harl::info()
 {
 	std::cout
 		<< SPRINGGREEN5
@@ -93,7 +97,7 @@ void	Harl::info()
 		<< std::endl;
 }
 
-void	Harl::warning()
+void Harl::warning()
 {
 	std::cout
 		<< SPRINGGREEN3
@@ -105,7 +109,7 @@ void	Harl::warning()
 		<< std::endl;
 }
 
-void	Harl::error()
+void Harl::error()
 {
 	std::cout
 		<< SPRINGGREEN6
@@ -116,4 +120,3 @@ void	Harl::error()
 		<< std::endl
 		<< std::endl;
 }
-
