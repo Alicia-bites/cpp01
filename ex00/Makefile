@@ -5,7 +5,7 @@ C++				:=	c++
 CXXFLAGS		:=	-Wall -Wextra -Werror -std=c++98
 CXXFLAGSADD		:=	-g3
 
-VALGRIND		:=	valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes
+VALGRIND		:=	-MMD valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes
 
 IPATH			:=	includes
 OPATH			:=	obj
@@ -61,6 +61,6 @@ comp:
 			make
 			$(VALGRIND) ./$(NAME)
 
-# -include $(DEPS)
+-include $(DEPS)
 
 .PHONY: all clean fclean re norme sym comp comp_vgdb comp_envi archive test_ok test_ko test_man
