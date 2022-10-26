@@ -24,7 +24,7 @@ void	exitIfEmptyOrInvalid(std::ifstream& file)
 {
 	if (file.peek() == EOF)
 	{
-		std::cout << "Empty file or invalid type. Nothing to copy."
+		std::cout << "Empty file, invalid type or cannt oppen file. Nothing to copy."
 			<< std::endl;
 		exit(0);
 	}
