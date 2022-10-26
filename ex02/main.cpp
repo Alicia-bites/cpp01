@@ -7,8 +7,9 @@ int main()
 	std::string *stringPTR = &str; 
 	std::string &stringREF = str;
 
-	std::cout << "stringPTR = " << stringPTR << std::endl; // accessing the memory address of the variable str.
-	std::cout << "stringREF = " << &stringREF << std::endl << std::endl;
+	std::cout << "string address is =	" << &str << std::endl;
+	std::cout << "stringPTR = 		" << stringPTR << std::endl; // accessing the memory address of the variable str.
+	std::cout << "stringREF = 		" << &stringREF << std::endl << std::endl;
 
 	std::cout << str << std::endl; // accessing the value of the variable str.
 	std::cout << *stringPTR << std::endl;
