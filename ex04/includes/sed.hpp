@@ -9,6 +9,7 @@
 #define EMPTY_STRING -43
 #define ARG_ERROR -44
 #define FILE_ERROR -45
+#define TWINS_STRING -46
 
 
 class File

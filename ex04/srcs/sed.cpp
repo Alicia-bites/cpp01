@@ -16,6 +16,8 @@ File::File(std::string& ori,
 {
 	if (ori_ == "" || subs_ == "")
 		panic(EMPTY_STRING);
+	else if (ori_ == subs_)
+		panic(TWINS_STRING);
 }
 
 //destructor

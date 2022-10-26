@@ -53,6 +53,9 @@ void	panic(int errcode)
 		std::cout << "Invalid number of arguments."
 			<< std::endl;
 	else if (errcode == FILE_ERROR)
-		std::cout << "Error! Couldn't open file." << std::endl;
+		std::cout << "Couldn't open file." << std::endl;
+	else if (errcode == TWINS_STRING)
+		std::cout << "String to replace cannot be identical to replacement."
+			<< std::endl;
 	exit(errcode);
 }
