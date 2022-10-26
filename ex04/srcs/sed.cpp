@@ -31,6 +31,7 @@ void		File::filePrep(const std::string fileName)
 	exitIfEmptyOrInvalid(originalFile_);
 	std::string copyFileName = fileName + ".replace";
 	copyFile_.open(copyFileName.c_str());
+	exitIfEmptyOrInvalid(copyFile_);
 }
 
 void	File::copyContent()

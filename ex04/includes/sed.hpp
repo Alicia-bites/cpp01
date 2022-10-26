@@ -31,7 +31,7 @@ class File
 	void	displayInfoMsg();
 };
 
-
+void	exitIfEmptyOrInvalid(std::ofstream& file);
 void	exitIfEmptyOrInvalid(std::ifstream& file);
 void	closeFileIfOpen(std::ifstream& file1,
 			std::ofstream& file2);
